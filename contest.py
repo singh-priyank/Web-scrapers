@@ -1,5 +1,7 @@
 import bs4 as bs
 import requests
+import datetime
+import pytz
 
 def request(url):
 	headers = {
@@ -23,16 +25,17 @@ table = soup.find('table')
 table_rows = table.findAll('tr')
 
 for tr in table_rows:
-	td = tr.findAll('td')
-	row = [i.text for i in td]
-	if len(row)>1:
-		name,time = row[0].strip(' '),row[2][2:-2]
-		time = time.split(' ')
-		time = '   '.join(time)
-		time = time+' + 2:30'
-		print(time,'  ',name[2:-2])
+    td = tr.findAll('td')
+    row = [i.text for i in td]
+    if len(row)>1:
+        name,time = row[0].strip(' '),row[2][2:-2]
+        time = time.split(' ')
+        time = '   '.join(time)
+        time = time+' + 2:30'
+        print(time,'  ',name[2:-2])
 
 print()
+
 
 print("-------------------AT CODER--------------------")
 url = 'https://atcoder.jp/'
@@ -49,13 +52,20 @@ table_rows = table.findAll('tr')
 for tr in table_rows:
     td = tr.findAll('td')
     row = [i.text for i in td]
-    row[0] = row[0].split(' ')
-    row[0][1] = row[0][1][:-8]+' -- 3:30'
-    row[0] = '   '.join(row[0])
-    row[0] = row[0][::-1]
-    print(row)
-    print()
-'''
+    #Converting to Indian time zone
+    tm = row[0]
+    tm = datetime.datetime.strptime(tm,'%Y-%m-%d %H:%M:%S%z')
+    tz = pytz.timezone('Asia/Kolkata')
+    tim = str(tm.astimezone(tz))
+    tim = tim.split(' ')
+    #Date formating
+    dat = tim[0]
+    dat = dat.split('-')
+    dat = '-'.join(dat[::-1])
+    print(dat,' ',tim[1][:-6],'  ',row[1])
+print()
+
+
 print("-------------------CodeChef--------------------")
 
 url = 'https://www.codechef.com/contests'
@@ -74,4 +84,4 @@ for tr in table_rows:
     row = [i.text for i in td]
     print(row[2],"   ",row[1])
 
-'''
+
