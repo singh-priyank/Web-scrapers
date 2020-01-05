@@ -11,5 +11,4 @@ Install lxml<br/>
   >*pip3 install lxml*<br/>
 
 <br/>
-*Some useful webscraper</br>
-  * Fetch the upcoming contests from different sites
+Fetch the upcoming contests from different sites(Codeforces, CodeChef, AtCoder)
