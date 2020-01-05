@@ -1,15 +1,15 @@
 # Web-scrapers
-Use **Python3** for running the files
-For installing pip
-  *sudo apt-get update*
-  *sudo apt-get install python3-pip*
+Use **Python3** for running the files<br/>
+For installing pip<br/>
+  *sudo apt-get update*<br/>
+  *sudo apt-get install python3-pip*<br/>
   
-Install BeautifulSoup
-  *sudo pip3 install beautifulsoup4*
+Install BeautifulSoup<br/>
+  *sudo pip3 install beautifulsoup4*<br/>
 
-Install lxml
-  *pip3 install lxml*
+Install lxml<br/>
+  *pip3 install lxml*<br/>
 
-
+<br/>
 Some useful webscraper
   1. Fetch the upcoming contests from different sites
