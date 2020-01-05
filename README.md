@@ -11,5 +11,5 @@ Install lxml<br/>
   >*pip3 install lxml*<br/>
 
 <br/>
-Some useful webscraper</br>
-  >1. Fetch the upcoming contests from different sites
+*Some useful webscraper</br>
+  * Fetch the upcoming contests from different sites
