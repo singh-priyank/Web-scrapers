@@ -31,8 +31,11 @@ for tr in table_rows:
         name,time = row[0].strip(' '),row[2][2:-2]
         time = time.split(' ')
         time = '   '.join(time)
-        time = time+' + 2:30'
-        print(time,'  ',name[2:-2])
+        h = time[-5:-3]
+        m = time[-2:]
+        tim = datetime.timedelta(hours=int(h), minutes=int(m))
+        tim = tim + datetime.timedelta(hours = 2,minutes = 30)
+        print(time[:-6],'  ',tim,'  ',name[2:-2])
 
 print()
 
